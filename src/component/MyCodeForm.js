@@ -95,7 +95,6 @@ class MyCodeForm extends Component {
                 <Modal open={this.state.show_mode} onClose={() => {this.setState({show_mode: false})}}>
                     <Modal.Header>
                         {this.state.show.title} - {this.state.show.lang === 'c_cpp' ? 'C++' : this.state.show.lang === 'java' ? 'Java' : this.state.show.lang === 'javascript' ? 'JavaScript' : 'Python'}
-                        <Icon style={{cursor:'pointer'}} className='right floated' name='feed' color='orange'/>
                     </Modal.Header>
                     <Modal.Content image scrolling>
                         <Modal.Description>
