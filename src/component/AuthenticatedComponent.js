@@ -14,7 +14,6 @@ export function requireAuthentication(Component){
 
         checkAuth(){
             let auth = JSON.parse(localStorage.getItem('auth'));
-
             if(!auth){
                 this.props.history.push('/');
                 return;
@@ -22,7 +21,6 @@ export function requireAuthentication(Component){
             let token = auth.token;
             return this.props.checkRequest(token).then(
                 () => {
-
                     this.setState({
                         status: this.props.status
                     });

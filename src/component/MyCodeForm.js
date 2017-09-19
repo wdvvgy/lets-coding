@@ -53,10 +53,8 @@ class MyCodeForm extends Component {
     }
 
     handleRemove(){
-
         const id = this.state.show_id;
         const idx = this.state.show_idx;
-        console.log('mycodeform handleRemove', id, idx);
         this.props.onRemove(id, idx);
         this.setState({show_mode: false});
     }

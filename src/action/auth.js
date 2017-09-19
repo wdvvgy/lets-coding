@@ -42,10 +42,8 @@ export function RegisterRequest(formData) {
         return axios.post('/api/auth/register', {
             formData
         }).then((response) => {
-            console.log(response);
             dispatch(registerSuccess(response));
         }).catch((error) => {
-            console.log(error);
             dispatch(registerFailure(error));
         });
     };

@@ -12,7 +12,6 @@ class Register extends Component {
     handleRegister(formData){
         return this.props.RegisterRequest(formData).then(
             () => {
-                console.log(this.props.status);
                 return (this.props.status === 'SUCCESS' ? true : false);
             }
         ).catch((error) => {

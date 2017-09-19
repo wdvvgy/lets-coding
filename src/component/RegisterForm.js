@@ -46,7 +46,6 @@ class RegisterForm extends Component {
 
         this.props.onRegister(formData).then(
             (success) => {
-                console.log('success: ' + success);
                 if(success) {
                     this.setState({
                         open : false,

@@ -109,12 +109,11 @@ class CodingForm extends Component {
         this.props.onRun(obj).then(
             (success) => {
                 if(success){
-                    if(this.props.runResult.run_status.status === 'AC'){
-                        this.setState({result: this.props.runResult.run_status.output_html, requireRun: false});
-                    } else if(this.props.runResult.run_status.status === 'RE') {
-                        this.setState({result: `실행에 실패했습니다.${'\n'}<p>사유 : ${this.props.runResult.run_status.stderr}`});
+                    const result = this.props.runResult;
+                    if(result.run_status.status === 'AC'){
+                        this.setState({result: `<p>메모리(kb) : ${result.run_status.memory_used}</p><p>시간(sec) : ${result.run_status.time_used}</p><p>${result.run_status.output_html}</p>`, requireRun: false});
                     } else {
-                        this.setState({result: `컴파일에 실패했습니다.${'\n'}<p>사유 : ${this.props.runResult.compile_status}`});
+                        this.setState({result: `<p>실행에 실패했습니다.</p>${'\n'}<p>메모리(kb) : ${result.run_status.memory_used || 0}</p><p>상태 : ${result.run_status.status}</p><p>상세메시지 : ${result.run_status.result_status || ""}</p><p>에러메시지 : ${result.run_status.stderr || ""}</p>`});
                     }
                     if(obj.mode === 'c_cpp') this.setState({cpp_result: this.state.result});
                     else if(obj.mode === 'java') this.setState({java_result: this.state.result});

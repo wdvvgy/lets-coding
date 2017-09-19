@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { LoginForm } from 'component';
 import { connect } from 'react-redux';
 import { loginRequest } from 'action/auth';
+import { withRouter } from 'react-router-dom';
 
 class Login extends Component {
     constructor(props) {
@@ -41,4 +42,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Login));
